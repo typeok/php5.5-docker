@@ -39,19 +39,11 @@ RUN apt-get install -y libssl-dev && \
 
     
 # Install mysql
-RUN apt-get install -y apt-utils
-RUN { \
-        echo debconf debconf/frontend select Noninteractive; \
-        echo mysql-community-server mysql-community-server/data-dir \
-            select ''; \
-        echo mysql-community-server mysql-community-server/root-pass \
-            password 'docker'; \
-        echo mysql-community-server mysql-community-server/re-root-pass \
-            password 'docker'; \
-        echo mysql-community-server mysql-community-server/remove-test-db \
-            select true; \
-    } | debconf-set-selections \
-    && apt-get install -y mysql-server-5.5
+RUN apt-get update \
+    && apt-get install -y debconf-utils \
+    && echo mysql-server-5.5 mysql-server/root_password password docker | debconf-set-selections \
+    && echo mysql-server-5.5 mysql-server/root_password_again password docker | debconf-set-selections \
+    && apt-get install -y mysql-server-5.5 -o pkg::Options::="--force-confdef" -o pkg::Options::="--force-confold" --fix-missing
 
 # install git
 RUN apt-get install -y git
