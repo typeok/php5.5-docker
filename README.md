@@ -1,1 +1,1 @@
-# php5.5-docker
+# php5.6-docker
