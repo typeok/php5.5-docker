@@ -1,4 +1,4 @@
-FROM php:5.6.21-cli
+FROM php:5.6.28-cli
 
 MAINTAINER Aleksey Kharlamov <aleksei.programmist@gmail.com>
 
