@@ -29,6 +29,8 @@ RUN docker-php-ext-install mcrypt
 RUN apt-get install zlib1g-dev
 RUN docker-php-ext-install zip
 
+RUN docker-php-ext-install curl
+
 # Install intl
 RUN apt-get install -y libicu-dev
 RUN pecl install intl
