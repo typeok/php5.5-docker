@@ -37,7 +37,7 @@ RUN apt-get install -y libssl-dev && \
     pecl install mongodb && \
     echo 'extension=mongodb.so' > /usr/local/etc/php/conf.d/20-mongodb.ini
 
-
+    
 # Install mysql
 RUN apt-get install -y apt-utils
 RUN { \
