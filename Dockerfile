@@ -29,6 +29,7 @@ RUN docker-php-ext-install mcrypt
 RUN apt-get install zlib1g-dev
 RUN docker-php-ext-install zip
 
+RUN apt-get install -y libcurl4-openssl-dev
 RUN docker-php-ext-install curl
 
 # Install intl
