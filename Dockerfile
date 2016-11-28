@@ -39,8 +39,8 @@ RUN apt-get install -y libssl-dev && \
 
 
 # Install mysql
-RUN apt-get install -y apt-utils \
-    && { \
+RUN apt-get install -y apt-utils
+RUN { \
         echo debconf debconf/frontend select Noninteractive; \
         echo mysql-community-server mysql-community-server/data-dir \
             select ''; \
